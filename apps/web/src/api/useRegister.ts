@@ -14,8 +14,11 @@ export const useRegister = () => {
 
   return useMutation({
     mutationFn: async (data: User) => {
+      const API_URL =
+        import.meta.env.VITE_API_URL ||
+        "https://internship-quiz-production.up.railway.app";
       //const res = await fetch("http://localhost:3000/api/auth/register", {
-      const res = await fetch(`${process.env.VITE_API_URL}/api/auth/register`, {
+      const res = await fetch(`${API_URL}/api/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
