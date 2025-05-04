@@ -14,15 +14,12 @@ export const useLogin = () => {
   return useMutation({
     mutationFn: async (data: LoginData) => {
       //const res = await fetch("http://localhost:3000/api/auth/login", {
-      const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/auth/login`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          credentials: "include",
-          body: JSON.stringify(data),
-        }
-      );
+      const res = await fetch(`${process.env.VITE_API_URL}/api/auth/login`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify(data),
+      });
 
       if (!res.ok) {
         const errorData = await res.json();

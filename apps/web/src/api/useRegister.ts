@@ -15,15 +15,12 @@ export const useRegister = () => {
   return useMutation({
     mutationFn: async (data: User) => {
       //const res = await fetch("http://localhost:3000/api/auth/register", {
-      const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/api/auth/register`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          credentials: "include",
-          body: JSON.stringify(data),
-        }
-      );
+      const res = await fetch(`${process.env.VITE_API_URL}/api/auth/register`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify(data),
+      });
 
       if (!res.ok) {
         const errorData = await res.json();
