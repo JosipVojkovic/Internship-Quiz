@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import axiosInstance from "./base";
 
-export type QuizType = {
+type QuizType = {
   categoryId: string;
   createdAt: string;
   id: string;
